@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Contact{% endblock %}
+
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('f_contactform') }}">
+        {{ contact_formulaire.hidden_tag() }}
+
+        <label for="nom">Nom:</label>
+        {{ contact_formulaire.wtf_nom(class="form-control") }}
+
+        <label for="prenom">Prénom:</label>
+        {{ contact_formulaire.wtf_prenom(class="form-control") }}
+
+        <label for="email">Email:</label>
+        {{ contact_formulaire.wtf_email(class="form-control") }}
+
+        <button type="submit" >Soumettre</button>
+    </form>
+
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

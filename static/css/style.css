@@ -15,14 +15,185 @@ body{
     margin-bottom: 3rem;
 }
 
+:root{
+    --green : #0E8784;
+    --dark-blue: #333D4B;
+    --pale-orange: #FDD6BA;
+    --gray : #83888F;
+    --white: #FEFCF7;
+    --green: #00bf63;
+  }
+
 /* FONTS  */
 
 
 
 /* PARTIE EN TETE  */
 
+.header{
+    padding: 2.2rem 0;
+}
 
-.section__banner{
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo__link{
+    display: block;
+    max-width: 14rem;
+    height: auto;
+}
+
+/* PARTIE MAINMENU */
+.main__nav .toggle-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    padding: 0.6rem;
+    z-index: 100;
+    border: none;
+    background: none;
+  }
+  
+  @media screen and (min-width: 767px) {
+    .main__nav .toggle-menu {
+      display: none;
+    }
+  }
+  
+  .main__nav .toggle-menu .bar {
+    position: relative;
+    width: 2.3rem;
+    height: 0.4rem;
+    background-color: var(--dark-blue);
+    display: inline-block;
+    transition: 0.4s all ease-in-out;
+  }
+
+  
+  .main__nav .toggle-menu .bar.second-bar {
+    margin: 0.4rem 0;
+  }
+  
+  .main__nav .toggle-menu.active .bar.second-bar {
+    background-color: transparent;
+  }
+  
+  .main__nav .toggle-menu.active .bar.first-bar {
+    transform: rotate(135deg);
+    top: 10px;
+    background-color: var(--white);
+  }
+  
+  .main__nav .toggle-menu.active .bar.third-bar {
+    transform: rotate(-135deg);
+    bottom: 6px;
+    background-color: var(--white);
+  }
+  
+  .main__nav .main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    padding: 3rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: -1500px;
+    z-index: 99;
+    transition: left 0.5s cubic-bezier(1, 0, 0, 1);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.93);
+    width: 100%;
+    /* height: 45%; */
+    height: 100vh;
+  }
+  
+  @media screen and (min-width: 767px) {
+    .main__nav .main-menu {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      height: auto;
+    }
+  }
+  
+  .main__nav .main-menu .menu-item {
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .main__nav .main-menu .menu-item:hover {
+    transform: scale(0.98);
+  }
+  
+
+  
+  .main__nav .main-menu .menu-item a {
+    position: relative;
+    display: inline-block;
+    font-family: "Barlow", sans-serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    font-weight: 600;
+    transition: all 0.1s ease-in-out;
+    background: transparent;
+    text-decoration: none;
+  }
+
+  .main__nav .main-menu .menu-item a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--green);
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    border-radius: 4px;
+  }
+  
+  @media screen and (min-width: 767px) {
+    .main__nav .main-menu .menu-item a {
+      font-size: 1.6rem;
+      color: black;
+    }
+  
+    .main__nav .main-menu .menu-item a:hover {
+      color: var(--white);
+    }
+
+    .main__nav .main-menu .menu-item a:hover::after {
+        width: 100%;
+    }
+  }
+  
+  .main__nav .main-menu .menu-item:not(:last-child) {
+    margin-bottom: 3.2rem;
+  }
+  
+  @media screen and (min-width: 767px) {
+    .main__nav .main-menu .menu-item:not(:last-child) {
+      margin-bottom: 0;
+      margin-right: 3.2rem;
+    }
+  }
+  
+  .main__nav .main-menu.opened {
+    left: 0;
+    top: 0;
+  }
+  
+
+/* PARTIE BANNER */
+.section__banner .container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,14 +204,11 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    border-radius: 4px;
 }
 
-.section__banner .container{
-    display: flex;
-    justify-content: center;
-    width: 100%;
 
-}
 
 .section__banner .container h1{
 

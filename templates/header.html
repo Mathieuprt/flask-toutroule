@@ -1,6 +1,6 @@
 <header class="header">
     <div class="container">
-        <a class="navbar-brand" href="{{url_for('f_index')}}">
+        <a class="logo__link" href="{{url_for('f_index')}}">
             <picture class="logo__picture">
                 <img src="{{ url_for('static', filename='images/logo.png') }} " class="logo__picture--img">
             </picture>
@@ -18,10 +18,10 @@
                 <a href="{{url_for('f_index')}}" class="menu-link">Formulaire</a>
               </li>
               <li class="menu-item">
-                <a href="{{url_for('f_index')}}" class="menu-link">Dashboard</a>
+                <a href="{{url_for('f_dashboard')}}" class="menu-link">Dashboard</a>
               </li>
               <li class="menu-item">
-                  <a href="{{url_for('f_contact')}}" class="menu-link">Contact</a>
+                  <a href="{{url_for('f_contactform')}}" class="menu-link">Contact</a>
                 </li>
             </ul>
       
