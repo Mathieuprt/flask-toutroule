@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Formulaire{% endblock %}
+
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <section class="section section__form">
+        <div class="container">
+            {% if t_nom %}
+                <h1>Votre nom : {{ t_nom }}</h1>
+                <h2>Votre prénom : {{ t_prenom }}</h2>
+                <h3>Civilité : {{ t_civilite }}</h3>
+                <h3>Type de vehicule: {{ t_typevehicule }}</h3>
+                <h3>Nombre de km : {{ t_nbKm }}</h3>
+                <h3>Commentaire : {{ t_commentaire }}</h3>
+            {% else %}
+                <form method="POST">
+
+                <label for="nom">Votre nom : 
+                    <input type="text" name="nom">
+                </label>
+            
+                <label for="prenom">Votre prénom : 
+                    <input type="text" name="prenom">
+                </label>
+            
+                <label for="civilite">Votre civilité : 
+                    <select name="civilite" id="civilite">
+                        <option value="mme">Madame</option>
+                        <option value="mr">Monsieur</option>
+                        
+                    </select>
+                </label>
+            
+                <label for="typeVehicule">Votre vehicule : 
+                    <select name="typeVehicule" id="typeVehicule">
+                        <option value="camion-citerne">Camion citerne</option>
+                        <option value="camion-benne">camion benne</option>
+                        <option value="camion-frigorifique">camion frigorifique</option>
+                        <option value="camion-fourgon">camion fourgon</option>
+                    </select>
+                </label>
+            
+                <label for="nbKm">Nombre de Km : 
+                    <input type="number" name="nbKm">
+                </label>
+            
+                <label for="commentaire">Votre commentaire 
+                    <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+                </label>
+                
+                <input type="submit" value="Envoyer">
+                </form>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
